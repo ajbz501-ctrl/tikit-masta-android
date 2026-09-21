@@ -10,6 +10,21 @@ public class ApiClient {
     private final String base;
     public ApiClient(String base) { this.base = base.replaceAll("/+$", ""); }
     public String absolute(String path) { return path.startsWith("http") ? path : base + (path.startsWith("/") ? path : "/" + path); }
+    public void get(String path, Callback cb) {
+        new Thread(() -> {
+            HttpURLConnection c = null;
+            try {
+                c = (HttpURLConnection)new URL(absolute(path)).openConnection();
+                c.setConnectTimeout(15000); c.setReadTimeout(20000); c.setRequestMethod("GET");
+                c.setRequestProperty("Accept", "application/json");
+                InputStream in = c.getResponseCode() < 400 ? c.getInputStream() : c.getErrorStream();
+                StringBuilder s = new StringBuilder();
+                try (BufferedReader r = new BufferedReader(new InputStreamReader(in, StandardCharsets.UTF_8))) { for (String l; (l=r.readLine())!=null;) s.append(l); }
+                JSONObject result = new JSONObject(s.toString());
+                cb.done(result, result.optBoolean("ok") ? null : result.optString("error", "API unavailable"));
+            } catch (Exception e) { cb.done(null, e.getMessage()); } finally { if (c != null) c.disconnect(); }
+        }).start();
+    }
     public void post(String path, JSONObject params, Callback cb) {
         new Thread(() -> {
             HttpURLConnection c = null;
