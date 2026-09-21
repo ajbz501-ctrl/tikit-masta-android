@@ -12,5 +12,5 @@ jobs:
       - run: gradle assembleRelease
       - uses: actions/upload-artifact@v4
         with:
-          name: TikitMasta-v1.1.1-APK
+          name: TikitMasta-v1.1.2-APK
           path: app/build/outputs/apk/release/app-release.apk
