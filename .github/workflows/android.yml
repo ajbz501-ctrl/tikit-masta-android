@@ -12,7 +12,7 @@ jobs:
       - run: gradle :app:assembleRelease :customer:assembleRelease
       - uses: actions/upload-artifact@v4
         with:
-          name: TikitMasta-Two-App-APKs
+          name: TikitMasta-Two-App-APKs-v1.0.1
           path: |
             app/build/outputs/apk/release/app-release.apk
             customer/build/outputs/apk/release/customer-release.apk
