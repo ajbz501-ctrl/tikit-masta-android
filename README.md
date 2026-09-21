@@ -1,4 +1,4 @@
-# Tikit Masta Android v1.1.1
+# Tikit Masta Android v1.1.2
 
 Native Android client for the `bz_eventpass` Odoo 18 Community module and its API v1.7.
 
@@ -14,6 +14,7 @@ Native Android client for the `bz_eventpass` Odoo 18 Community module and its AP
 - Configurable Odoo URL and scanner device token
 - Professional customer/staff dashboard and improved loading/error states
 - Explicit accessible form labels, text colors, and navigation-bar spacing
+- Defaults to https://tikitmaster.com and tests the public health endpoint separately from staff tokens
 - Android 7.0+ support
 
 ## First use
