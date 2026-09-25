@@ -1,8 +1,9 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <application android:allowBackup="true" android:usesCleartextTraffic="true" android:theme="@style/Theme.TikitMasta" android:label="Tikit Masta" android:icon="@drawable/ic_launcher">
-        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="portrait" android:stateNotNeeded="true" />
+    <application android:allowBackup="true" android:usesCleartextTraffic="true" android:theme="@style/Theme.TikitMasta" android:label="Tikit Masta Business" android:icon="@drawable/ic_launcher">
+        <activity android:name="com.journeyapps.barcodescanner.CaptureActivity" android:screenOrientation="portrait" android:stateNotNeeded="true" tools:replace="android:screenOrientation" />
         <activity android:name=".MainActivity" android:screenOrientation="portrait" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
